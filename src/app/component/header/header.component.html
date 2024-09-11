@@ -1,1 +1,22 @@
-<p>header works!</p>
+<header>
+  <nav>
+    <h1>Showcase</h1>
+    <button (click)="toggleDarkMode()" class="flex items-center">
+      <img
+        [src]="
+          isDarkMode
+            ? 'assets/icons/icon-moon.svg'
+            : 'assets/icons/icon-sun.svg'
+        "
+        alt="Toggle Mode"
+        class="h-6 w-6"
+      />
+    </button>
+    <ul>
+      <li><a [routerLink]="['/trends']">Trend</a></li>
+      <li><a [routerLink]="['/sport']">Sport</a></li>
+      <li><a [routerLink]="['/about']">About</a></li>
+      <li><a [routerLink]="['/contact']">Contact</a></li>
+    </ul>
+  </nav>
+</header>

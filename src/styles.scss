@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../src/styles/variables";
+@import "../src/styles/mixins";
+@import "../src/styles/themes";
+
+body {
+  @include theme($light-background, $light-text);
+  font-family: $font-stack;
+
+  &.dark-mode {
+    @include theme($dark-background, $dark-text);
+  }
+}
+
+main {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-unit;
+}

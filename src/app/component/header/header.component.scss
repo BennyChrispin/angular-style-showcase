@@ -1,0 +1,63 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+$max-width: 1024px;
+header {
+  @include theme($light-background, $light-text);
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-unit;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    h1 {
+      margin: 0;
+    }
+
+    ul {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      list-style: none;
+      display: flex;
+      gap: $spacing-unit;
+
+      li {
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          transition: color 0.2s ease-in-out;
+          font-weight: 700;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  // Dark mode styling
+  body.dark-mode & {
+    @include theme($dark-background, $dark-text);
+
+    ul li a {
+      color: $dark-text;
+    }
+  }
+}

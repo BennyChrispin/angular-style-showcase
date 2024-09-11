@@ -1,1 +1,26 @@
-<p>trends works!</p>
+<div *ngIf="isLoading" class="loader">
+  <div class="spinner"></div>
+</div>
+<div *ngIf="!isLoading">
+  <ul class="article-list">
+    <li *ngFor="let article of articles" class="article-card">
+      <a [href]="article.url" target="_blank" class="article-link">
+        <div class="article-content">
+          <img
+            [src]="article.urlToImage"
+            alt="{{ article.title }}"
+            class="article-image"
+            *ngIf="article.urlToImage; else noImage"
+          />
+          <ng-template #noImage>
+            <div class="no-image-placeholder">No Image Available</div>
+          </ng-template>
+          <div class="article-details">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.description }}</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

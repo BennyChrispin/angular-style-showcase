@@ -6,9 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { HoverHighlightDirective } from './hover-highlight.directive';
 import { FooterComponent } from './component/footer/footer.component';
-import { SportComponent } from './component/sport/sport.component';
-import { AboutComponent } from './component/about/about.component';
-import { ContanctComponent } from './component/contanct/contanct.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +14,8 @@ import { ContanctComponent } from './component/contanct/contanct.component';
     HeaderComponent,
     HoverHighlightDirective,
     FooterComponent,
-    SportComponent,
-    AboutComponent,
-    ContanctComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

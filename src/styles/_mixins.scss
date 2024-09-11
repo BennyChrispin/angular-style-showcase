@@ -2,3 +2,15 @@
   background-color: $background-color;
   color: $text-color;
 }
+
+@mixin respond-to($device) {
+  @if $device == "tablet" {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $device == "mobile" {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+}

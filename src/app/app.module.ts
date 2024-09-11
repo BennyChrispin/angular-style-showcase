@@ -7,6 +7,8 @@ import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MainContentComponent } from './component/main-content/main-content.component';
 import { HoverHighlightDirective } from './hover-highlight.directive';
+import { ChildOneComponent } from './component/main-content/child-one/child-one.component';
+import { ChildTwoComponent } from './component/main-content/child-two/child-two.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HoverHighlightDirective } from './hover-highlight.directive';
     HeaderComponent,
     FooterComponent,
     MainContentComponent,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    ChildOneComponent,
+    ChildTwoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,22 @@
-<p>sport works!</p>
+<div *ngIf="isLoading" class="loader">
+  <div class="spinner"></div>
+</div>
+<div *ngIf="!isLoading" class="sports-container">
+  <div *ngFor="let news of sportsNews" class="sports-card">
+    <ng-container *ngIf="news.urlToImage; else defaultImage">
+      <img
+        [src]="news.urlToImage"
+        alt="{{ news.title }}"
+        class="sports-image"
+      />
+    </ng-container>
+    <ng-template #defaultImage>
+      <div class="default-image">No Image Available</div>
+    </ng-template>
+    <div class="sports-content">
+      <h2 class="sports-title">{{ news.title }}</h2>
+      <p class="sports-description">{{ news.description }}</p>
+      <a [href]="news.url" target="_blank" class="sports-link">Read more</a>
+    </div>
+  </div>
+</div>

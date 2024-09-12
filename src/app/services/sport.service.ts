@@ -7,13 +7,13 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class SportService {
-  private apiUrl = 'https://api.nytimes.com/svc/topstories/v2/sports.json';
-  private apiKey = 'YOUR_NYTIMES_API_KEY';
+  private apiUrl = 'https://newsapi.org/v2/top-headlines?category=sports';
+  private apiKey = '99065ca78e9f48bcb7ba6c7e4a2f15df';
 
   constructor(private http: HttpClient) {}
 
   getSportsNews(): Observable<any> {
-    const url = `${this.apiUrl}?api-key=${this.apiKey}`;
-    return this.http.get<any>(url).pipe(map((response) => response.results));
+    const url = `${this.apiUrl}&apiKey=${this.apiKey}`;
+    return this.http.get<any>(url).pipe(map((response) => response.articles));
   }
 }

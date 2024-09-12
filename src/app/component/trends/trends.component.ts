@@ -15,7 +15,7 @@ export class TrendsComponent implements OnInit {
   ngOnInit(): void {
     this.trendsService.getTrends().subscribe({
       next: (data) => {
-        console.log('API Data:', data);
+        // console.log('API Data:', data);
         this.articles = data;
         this.isLoading = false;
       },

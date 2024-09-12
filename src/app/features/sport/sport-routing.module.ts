@@ -4,7 +4,7 @@ import { SportComponent } from '../../component/sport/sport.component';
 
 const routes: Routes = [
   {
-    path: 'sport',
+    path: '',
     component: SportComponent,
   },
 ];

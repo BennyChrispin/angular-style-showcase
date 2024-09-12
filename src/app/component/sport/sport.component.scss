@@ -1,0 +1,111 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/themes";
+
+// Loader styling
+.loader {
+  text-align: center;
+  padding: $spacing-unit;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  // Loader animation
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #070707;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// General styles
+.sports-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+
+  @include respond-to("tablet") {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @include respond-to("desktop") {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+// Sports card styling
+.sports-card {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+// Sports image styling
+.sports-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+// Default image or text placeholder
+.default-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  background-color: $placeholder-background;
+  color: $placeholder-text;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+// Sports content styling
+.sports-content {
+  padding: 16px;
+}
+
+.sports-title {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+}
+
+.sports-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.sports-link {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

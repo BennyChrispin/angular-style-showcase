@@ -20,6 +20,6 @@ module.exports = {
   ],
   moduleFileExtensions: ["ts", "html", "js", "json"],
   collectCoverage: true,
-  coverageReporters: ["html"],
+  coverageReporters: ["html", "text", "lcov", "json"],
   coverageDirectory: "coverage/jest-demo",
 };

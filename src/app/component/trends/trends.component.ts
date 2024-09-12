@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environment/environment';
 import { TrendsService } from '../../services/trends.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { TrendsService } from '../../services/trends.service';
 export class TrendsComponent implements OnInit {
   articles: any[] = [];
   isLoading = true;
+  canDisplayContent = !environment.production;
 
   constructor(private trendsService: TrendsService) {}
 
@@ -17,9 +19,11 @@ export class TrendsComponent implements OnInit {
       next: (data) => {
         this.articles = data;
         this.isLoading = false;
+        this.canDisplayContent = true;
       },
       error: () => {
         this.isLoading = false;
+        this.canDisplayContent = false;
       },
     });
   }

@@ -2,28 +2,30 @@
   <div class="spinner"></div>
 </div>
 
-<div *ngIf="!isLoading" class="sports-container">
+<div *ngIf="!isLoading">
   <p *ngIf="isRestricted" class="restriction-message">
     Content cannot be displayed in production because the API plan restricts
     access. Please upgrade to a paid plan for full functionality.
   </p>
 
   <div *ngIf="!isRestricted">
-    <div *ngFor="let news of sportsNews" class="sports-card">
-      <ng-container *ngIf="news.urlToImage; else defaultImage">
-        <img
-          [src]="news.urlToImage"
-          alt="{{ news.title }}"
-          class="sports-image"
-        />
-      </ng-container>
-      <ng-template #defaultImage>
-        <div class="default-image">No Image Available</div>
-      </ng-template>
-      <div class="sports-content">
-        <h2 class="sports-title">{{ news.title }}</h2>
-        <p class="sports-description">{{ news.description }}</p>
-        <a [href]="news.url" target="_blank" class="sports-link">Read more</a>
+    <div class="sports-container">
+      <div *ngFor="let news of sportsNews" class="sports-card">
+        <ng-container *ngIf="news.urlToImage; else defaultImage">
+          <img
+            [src]="news.urlToImage"
+            alt="{{ news.title }}"
+            class="sports-image"
+          />
+        </ng-container>
+        <ng-template #defaultImage>
+          <div class="default-image">No Image Available</div>
+        </ng-template>
+        <div class="sports-content">
+          <h2 class="sports-title">{{ news.title }}</h2>
+          <p class="sports-description">{{ news.description }}</p>
+          <a [href]="news.url" target="_blank" class="sports-link">Read more</a>
+        </div>
       </div>
     </div>
   </div>

@@ -1,15 +1,21 @@
+// Mixin for theme styling
 @mixin theme($background-color, $text-color) {
   background-color: $background-color;
   color: $text-color;
 }
 
-@mixin respond-to($device) {
-  @if $device == "tablet" {
+// Mixin for responsive design
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "tablet" {
     @media (max-width: 768px) {
       @content;
     }
-  } @else if $device == "mobile" {
+  } @else if $breakpoint == "mobile" {
     @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $breakpoint == "desktop" {
+    @media (min-width: 1024px) {
       @content;
     }
   }

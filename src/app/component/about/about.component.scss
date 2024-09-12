@@ -1,0 +1,42 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/themes";
+
+.about-container {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .about-title {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: $light-text;
+    text-align: center;
+  }
+
+  .about-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+
+    strong {
+      font-size: 1.5rem;
+      color: #0056b3;
+    }
+  }
+}
+
+body.light-mode {
+  .about-container {
+    background-color: $light-background;
+    color: $light-text;
+  }
+}
+
+body.dark-mode {
+  .about-container {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+}

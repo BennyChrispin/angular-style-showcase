@@ -1,0 +1,51 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/themes";
+
+.footer-container {
+  padding: $spacing-unit;
+  background-color: $primary-color;
+  color: $dark-text;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  max-width: 100%;
+
+  .footer-content {
+    max-width: $max-width;
+    margin: 0 auto;
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+
+      .footer-link {
+        color: $dark-text;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 0.9rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Responsive styling
+@include respond-to("tablet") {
+  .footer-container {
+    padding: $spacing-unit;
+  }
+}
+
+@include respond-to("mobile") {
+  .footer-container {
+    padding: $spacing-unit;
+  }
+}

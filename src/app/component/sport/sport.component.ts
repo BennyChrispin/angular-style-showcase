@@ -9,18 +9,25 @@ import { SportService } from '../../services/sport.service';
 export class SportComponent implements OnInit {
   sportsNews: any[] = [];
   isLoading = true;
+  isRestricted = false;
 
   constructor(private sportService: SportService) {}
 
   ngOnInit(): void {
-    this.sportService.getSportsNews().subscribe((data) => {
-      console.log('Received data:', data);
-      this.sportsNews = data;
-      this.isLoading = false;
+    this.sportService.getSportsNews().subscribe({
+      next: (data) => {
+        console.log('Received data:', data);
+        this.sportsNews = data;
+        if (data.status === 'error' && data.message.includes('restricted')) {
+          this.isRestricted = true;
+        }
 
-      this.sportsNews.forEach((news) => {
-        console.log('Image URL:', news.urlToImage);
-      });
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+        this.isRestricted = true;
+      },
     });
   }
 }

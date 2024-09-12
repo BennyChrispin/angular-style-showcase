@@ -32,6 +32,15 @@
   }
 }
 
+.restriction-message {
+  background-color: $light-background;
+  color: $placeholder-text;
+  padding: 1rem;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
 // General styles
 .sports-container {
   display: grid;
